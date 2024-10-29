@@ -2,8 +2,8 @@ version: 2
 
 sources:
   - name: ecom
-    database: dbt_bq
-    schema: raw
+    database: dbt-project-439820
+    schema: dbt_bq
     description: Ecommerce Data
 
     freshness:

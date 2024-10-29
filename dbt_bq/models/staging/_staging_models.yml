@@ -21,15 +21,15 @@ models:
         data_tests:
           - not_null
           - relationships:
-            to: ref('raw_customers')
-            filed: id
+              to: ref('raw_customers')
+              field: id
 
       - name: store_id
         data_tests:
           - not_null
           - relationships:
-            to: ref('raw_stores')
-            field: id
+              to: ref('raw_stores')
+              field: id
 
   - name: stg_orders_2024
     description: Orders_2024 table as a view
@@ -43,15 +43,15 @@ models:
         data_tests:
           - not_null
           - relationships:
-            to: ref('raw_customers')
-            filed: id
+              to: ref('raw_customers')
+              field: id
 
       - name: store_id
         data_tests:
           - not_null
           - relationships:
-            to: ref('raw_stores')
-            field: id
+              to: ref('raw_stores')
+              field: id
 
   - name: stg_products
     description: Products table as a view
@@ -69,8 +69,8 @@ models:
           - unique
           - not_null
 
-  - name: stg_supllies
-    description: Supllies table as a view
+  - name: stg_supplies
+    description: Supplies table as a view
     columns:
       - name: id
         data_tests:

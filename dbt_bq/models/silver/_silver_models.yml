@@ -5,49 +5,49 @@ models:
     description: Renamed stg_customers columns and persists as a view
     columns:
       - name: customer_id
-        tests:
+        data_tests:
           - unique
           - not_null
 
-  - name: silver_orders_23
+  - name: silver_orders_2023
     description: Renamed and filtered stg_orders_2023 columns and persists as a view
     columns:
       - name: order_id
-        tests:
+        data_tests:
           - unique
           - not_null
 
       - name: customer_id
-        tests:
+        data_tests:
           - not_null
           - relationships:
               to: ref('silver_customers')
               field: customer_id
 
       - name: store_id
-        tests:
+        data_tests:
           - not_null
           - relationships:
               to: ref('silver_stores')
               field: store_id
 
-  - name: silver_orders_24
+  - name: silver_orders_2024
     description: Renamed and filtered stg_orders_2024 columns and persists as a view
     columns:
       - name: order_id
-        tests:
+        data_tests:
           - unique
           - not_null
 
       - name: customer_id
-        tests:
+        data_tests:
           - not_null
           - relationships:
               to: ref('silver_customers')
               field: customer_id
 
       - name: store_id
-        tests:
+        data_tests:
           - not_null
           - relationships:
               to: ref('silver_stores')
@@ -57,7 +57,7 @@ models:
     description: Renamed stg_products columns and persists as a view
     columns:
       - name: product_id
-        tests:
+        data_tests:
           - unique
           - not_null
 
@@ -65,7 +65,7 @@ models:
     description: Renamed and filtered stg_stores and persists as a view
     columns:
       - name: store_id
-        tests:
+        data_tests:
           - unique
           - not_null
 
@@ -73,7 +73,7 @@ models:
     description: Renamed and filtered stg_supplies and persists as a view
     columns:
       - name: product_id
-        tests:
+        data_tests:
           - relationships:
               to: ref('silver_products')
               field: product_id

@@ -1,5 +1,3 @@
-{% macro cents_to_dollars(column) %}
-
-    round(cast(( {{column}} /100) as numeric), 2)
-
+{% macro cents_to_dollars(column_name) %}
+    CAST({{ column_name }} / 100 AS NUMERIC)
 {% endmacro %}

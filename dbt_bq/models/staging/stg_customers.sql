@@ -3,7 +3,7 @@ with cte_stg_customers as (
     select
         *
     from
-        {{source('econ','raw_customers')}}
+        {{source('ecom','raw_customers')}}
 
 )
 
