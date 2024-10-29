@@ -1,7 +1,7 @@
 with cte_silver_supplies as (
 
     select
-        CONCAT(id,"-",sku) as product_uuid
+        {{dbt_utils.generate_surrogate_key(['id','sku'])}} as product_uuid
         id as supply_id,
         name as supply_name,
         cents_to_dollars(cost) as supply_cost,
