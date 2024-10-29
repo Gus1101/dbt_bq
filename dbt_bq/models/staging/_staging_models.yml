@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: Customer database as a view
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_orders_2023
+    description: Orders_2023 table as a view
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer
+        data_tests:
+          - not_null
+          - relationships:
+            to: ref('raw_customers')
+            filed: id
+
+      - name: store_id
+        data_tests:
+          - not_null
+          - relationships:
+            to: ref('raw_stores')
+            field: id
+
+  - name: stg_orders_2024
+    description: Orders_2024 table as a view
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer
+        data_tests:
+          - not_null
+          - relationships:
+            to: ref('raw_customers')
+            filed: id
+
+      - name: store_id
+        data_tests:
+          - not_null
+          - relationships:
+            to: ref('raw_stores')
+            field: id
+
+  - name: stg_products
+    description: Products table as a view
+    columns:
+      - name: sku
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_stores
+    description: Stores table as a view
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_supllies
+    description: Supllies table as a view
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
