@@ -2,78 +2,78 @@ version: 2
 
 models:
   - name: silver_customers
-    description: renamed stg_costumers columns and persists as a view
+    description: Renamed stg_customers columns and persists as a view
     columns:
       - name: customer_id
-        data_tests:
+        tests:
           - unique
           - not_null
 
   - name: silver_orders_23
-    description: renamed and filter stg_orders_2023 columns and persists as a view
+    description: Renamed and filtered stg_orders_2023 columns and persists as a view
     columns:
       - name: order_id
-        data_tests:
+        tests:
           - unique
           - not_null
 
       - name: customer_id
-        data_tests:
+        tests:
           - not_null
           - relationships:
-            to: ref('silver_customers')
-            field: customer_id
+              to: ref('silver_customers')
+              field: customer_id
 
       - name: store_id
-        data_tests:
-          - not_null:
+        tests:
+          - not_null
           - relationships:
-            to: ref('silver_stores')
-            filed: store_id
+              to: ref('silver_stores')
+              field: store_id
 
   - name: silver_orders_24
-    description: renamed and filter stg_orders_2024 columns and persists as a view
+    description: Renamed and filtered stg_orders_2024 columns and persists as a view
     columns:
       - name: order_id
-        data_tests:
+        tests:
           - unique
           - not_null
 
       - name: customer_id
-        data_tests:
+        tests:
           - not_null
           - relationships:
-            to: ref('silver_customers')
-            field: customer_id
+              to: ref('silver_customers')
+              field: customer_id
 
       - name: store_id
-        data_tests:
-          - not_null:
+        tests:
+          - not_null
           - relationships:
-            to: ref('silver_stores')
-            filed: store_id
+              to: ref('silver_stores')
+              field: store_id
 
   - name: silver_products
-    description: renamed and stg_products columns and persists as a view
+    description: Renamed stg_products columns and persists as a view
     columns:
       - name: product_id
-        data_tests:
+        tests:
           - unique
           - not_null
 
   - name: silver_stores
-    description: renamed and filtered stg_stores and persists as a view
+    description: Renamed and filtered stg_stores and persists as a view
     columns:
       - name: store_id
-        data_tests:
+        tests:
           - unique
           - not_null
 
   - name: silver_supplies
-    description: rename and filtered stg_supplies and persists as a view
+    description: Renamed and filtered stg_supplies and persists as a view
     columns:
-      - product_id:
-        data_tests:
+      - name: product_id
+        tests:
           - relationships:
-            to: ref('silver_products')
-            field: product_id
+              to: ref('silver_products')
+              field: product_id
